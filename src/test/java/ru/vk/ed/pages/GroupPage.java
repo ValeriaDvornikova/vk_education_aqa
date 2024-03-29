@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.$x;
 public class GroupPage {
     private final SelenideElement JOIN_GROUP = $x("//button[.//span[contains(text(),'Вступить')]]");
     private final SelenideElement RESULT_TEXT_IN_TAG = $x("//span[contains(text(),'Вы в группе')]");
-    private final SelenideElement GROUP_FIRST = $x("//img[@class='photo_img'][1]");
-    private final SelenideElement EXIT_GROUP = $x("//*[@id='hook_Block_AltGroupMainMenu']/ul/div/div");
+    private final SelenideElement GROUP_FIRST = $x("//*[@class = 'scroll-slider_item mr-x']//div[@class='section']");
+    private final SelenideElement EXIT_GROUP = $x("//*[@data-l = 'outlandertarget,join,t,join']");
     private final SelenideElement EXIT_STEP = $x("//div[@class='dropdown_n']");
     private final SelenideElement OUT = $x("//input[@data-l = 't,confirm']");
 
@@ -36,9 +36,9 @@ public class GroupPage {
     // Выйти из группы
     public void exitMyGroup() {
         Selenide.refresh();
-        GROUP_FIRST.click();
-        EXIT_GROUP.click();
-        EXIT_STEP.click();
-        OUT.click();
+        GROUP_FIRST.shouldBe(visible).click();
+        EXIT_GROUP.shouldBe(visible).click();
+        EXIT_STEP.shouldBe(visible).click();
+        OUT.shouldBe(visible).click();
     }
 }

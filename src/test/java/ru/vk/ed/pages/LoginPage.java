@@ -3,6 +3,7 @@ package ru.vk.ed.pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 /**
  * Страница для входа в ok.ru
@@ -28,6 +29,6 @@ import static com.codeborne.selenide.Selenide.$x;
         }
         // Клик по кпопке "Войти в одноклассники"
         public void pressOnButton(){
-            SUBMIT_BUTTON.click();
+            SUBMIT_BUTTON.shouldBe(visible).click();
         }
     }

@@ -2,9 +2,8 @@ package ru.vk.ed.pages;
 
 import com.codeborne.selenide.*;
 import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.*;
 
 /**
  * Главная страница одноклассников
@@ -21,33 +20,40 @@ public class MainPage {
     private final SelenideElement EXIT_BOX = $x("//div[@role='listitem']");
     private final SelenideElement EXIT_BUTTON = $x("//a[contains(text(),'Выйти')]");
     private final SelenideElement EXIT_BUTTON2 = $x("//input[@data-l='t,logout']");
+    private final SelenideElement NODESOFNEWS = $x("//div[@class = 'feed __just-created __header-redesign']//div[@class = 'feed-action']");
+    private final ElementsCollection DELETENEWS = $$x("//*[contains(text(),'Удалить заметку')]");
 
 
 
 
     // Нажать на кнопку группы на главной странице
     public void pressOnGroup() {
-        GROUP_BUTTON.click();
+        GROUP_BUTTON.shouldBe(visible).click();
     }
 
     // На главном экране нажать на кнопку Музыка, расположенную на верхней части панели
     public void clickOnMusic(){
-        MUSIC_ELEMENT.click();
+        MUSIC_ELEMENT.shouldBe(visible).click();
         sleep(1000L);
     }
     public void clickNews(){
-        PUSH_NEWS.click();
+        PUSH_NEWS.shouldBe(visible).click();
     }
     public String containsRec(){
        return RECORD.innerText();
     }
     // Выход со страницы пользователя
     public void exitOk(){
-        SET_OF_PROFILE.click();
-        EXIT_BOX.click();
+        SET_OF_PROFILE.shouldBe(visible).click();
+        EXIT_BOX.shouldBe(visible).click();
         EXIT_BUTTON.isDisplayed();
-        EXIT_BUTTON.click();
+        EXIT_BUTTON.shouldBe(visible).click();
         EXIT_BUTTON2.isDisplayed();
-        EXIT_BUTTON2.click();
+        EXIT_BUTTON2.shouldBe(visible).click();
     }
+    public void deleteNews(){
+        NODESOFNEWS.shouldBe(visible).click();
+        DELETENEWS.get(1).shouldBe(visible).click();
+    }
+
 }

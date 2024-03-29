@@ -15,7 +15,7 @@ public class MusicPage {
     public void playMusic(){
         MUSIC_BUTTON_PLAY.shouldBe(visible).click();
         sleep(3000L);
-        PAUSE_BUTTON.click();
+        PAUSE_BUTTON.shouldBe(visible).click();
     }
     // Возвращаем время воспроизведения трека для проверки проигрывания
     public String getTime(){
