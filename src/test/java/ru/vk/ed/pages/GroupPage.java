@@ -13,7 +13,16 @@ public class GroupPage {
     private final SelenideElement EXIT_GROUP = $x("//*[@data-l = 'outlandertarget,join,t,join']");
     private final SelenideElement EXIT_STEP = $x("//div[@class='dropdown_n']");
     private final SelenideElement OUT = $x("//input[@data-l = 't,confirm']");
+    private final SelenideElement GROUP_AREA=$x("//*[@class='loader-container popular-groups-loader']");
+    private final SelenideElement SEARCH_GROUP_WINDOW = $x("//*[@type='search']");
+    private final SelenideElement CREATE_GROUP_BUTTON = $x("//*[contains(text(),'Создать группу')]");
 
+    // Проверка нахождения на странице с группами
+    public void checkGroupPage(){
+        GROUP_AREA.shouldBe(visible);
+        SEARCH_GROUP_WINDOW.shouldBe(visible);
+        CREATE_GROUP_BUTTON.shouldBe(visible);
+    }
     // Нажать на кнопку "Вступить" у первой группы
     public void getIntoGroup() {
         Throwable exception = null;

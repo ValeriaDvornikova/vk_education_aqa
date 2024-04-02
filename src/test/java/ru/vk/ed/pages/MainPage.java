@@ -15,16 +15,23 @@ public class MainPage {
 
     private final SelenideElement MUSIC_ELEMENT = $x("//button[@aria-label='Музыка']");
     private final SelenideElement PUSH_NEWS = $x("//span[contains(text(),'Опубликовать')]");
+    private final SelenideElement CLICK_ON_RECORD = $x("//span[contains(text(),'Запись')]");
     private final SelenideElement RECORD = $x("//div[@class = 'media-text_cnt']");
     private final SelenideElement SET_OF_PROFILE = $x("//button[@aria-label='Настройки профиля']");
     private final SelenideElement EXIT_BOX = $x("//div[@role='listitem']");
     private final SelenideElement EXIT_BUTTON = $x("//a[contains(text(),'Выйти')]");
     private final SelenideElement EXIT_BUTTON2 = $x("//input[@data-l='t,logout']");
-    private final SelenideElement NODESOFNEWS = $x("//div[@class = 'feed __just-created __header-redesign']//div[@class = 'feed-action']");
-    private final ElementsCollection DELETENEWS = $$x("//*[contains(text(),'Удалить заметку')]");
+    private final SelenideElement NODES_OF_NEWS = $x("//div[@class = 'feed __just-created __header-redesign']//div[@class = 'feed-action']");
+    private final ElementsCollection DELETE_NEWS = $$x("//*[contains(text(),'Удалить заметку')]");
+    private final SelenideElement ENTERTAINMENTS_AREA = $x("//*[@class='alternative-content-block__hcz2a']");
+    private final SelenideElement USER_PAGE_ELEMENT = $x("//*[@data-l='t,userPage']");
 
-
-
+    // Проверка наахождения на главной странице
+    public void checkMainPage(){
+        PHOTO_ZONE.shouldBe(visible);
+        ENTERTAINMENTS_AREA.shouldBe(visible);
+        USER_PAGE_ELEMENT.shouldBe(visible);
+    }
 
     // Нажать на кнопку группы на главной странице
     public void pressOnGroup() {
@@ -38,6 +45,9 @@ public class MainPage {
     }
     public void clickNews(){
         PUSH_NEWS.shouldBe(visible).click();
+        CLICK_ON_RECORD.shouldBe(visible).click();
+
+
     }
     public String containsRec(){
        return RECORD.innerText();
@@ -52,8 +62,8 @@ public class MainPage {
         EXIT_BUTTON2.shouldBe(visible).click();
     }
     public void deleteNews(){
-        NODESOFNEWS.shouldBe(visible).click();
-        DELETENEWS.get(1).shouldBe(visible).click();
+        NODES_OF_NEWS.shouldBe(visible).click();
+        DELETE_NEWS.get(1).shouldBe(visible).click();
     }
 
 }

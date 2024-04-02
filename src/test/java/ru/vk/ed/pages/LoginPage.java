@@ -3,6 +3,7 @@ package ru.vk.ed.pages;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 /**
@@ -19,7 +20,11 @@ import static com.codeborne.selenide.Selenide.$x;
     public LoginPage(String url){
             Selenide.open(url);
         }
-
+        public void checkLogPage(){
+        LOG_FORM.shouldBe(clickable);
+        PASS_FORM.shouldBe(clickable);
+        SUBMIT_BUTTON.shouldBe(clickable);
+        }
         // Ввод данных в формы для логина и пароля
         public void clickOnLogForm(String logInfo) {
             LOG_FORM.setValue(logInfo);

@@ -12,6 +12,7 @@ public class OkGroupTest extends BaseTest {
         MainPage mainPage = new MainPage();
         mainPage.pressOnGroup();
         GroupPage groupPage = new GroupPage();
+        groupPage.checkGroupPage();
         groupPage.getIntoGroup();
         Assertions.assertTrue(groupPage.getResultText().equals("Вы в группе"));
 

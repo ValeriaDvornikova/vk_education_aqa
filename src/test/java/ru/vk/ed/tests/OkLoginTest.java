@@ -1,6 +1,8 @@
 package ru.vk.ed.tests;
+import org.apache.commons.logging.Log;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.vk.ed.pages.LoginPage;
 import ru.vk.ed.pages.MainPage;
 
 

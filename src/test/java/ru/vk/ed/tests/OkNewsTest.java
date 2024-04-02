@@ -13,6 +13,7 @@ public class OkNewsTest extends BaseTest {
         MainPage mainPage =new MainPage();
         mainPage.clickNews();
         NewsPage newspage = new NewsPage();
+        newspage.checkNewsPage();
         newspage.pushNews(str);
         Assertions.assertTrue(mainPage.containsRec().contains(str));
         mainPage.deleteNews();

@@ -12,6 +12,7 @@ public class OkMusicTest extends BaseTest{
        MainPage mainPage = new MainPage();
        mainPage.clickOnMusic();
        MusicPage musicPage = new MusicPage();
+       musicPage.checkMusicPage();
        musicPage.playMusic();
        Assertions.assertFalse(musicPage.getTime().equals(0));
 

@@ -32,6 +32,8 @@ public abstract class BaseTest {
     // Авторизация на странице ok.ru
     public void authorized(){
         LoginPage loginPage = new LoginPage(BASE_URL);
+        // Проверяем, что это действительно страница авторизации пользователя
+        loginPage.checkLogPage();
         // Введение логина, пароля и нажатие на кнопку для авторизации пользователя
         loginPage.clickOnLogForm(LOGIN);
         loginPage.clickOnPassForm(PASS);
