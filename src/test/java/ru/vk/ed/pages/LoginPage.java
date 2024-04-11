@@ -20,7 +20,8 @@ import static com.codeborne.selenide.Selenide.$x;
     public LoginPage(String url){
             Selenide.open(url);
         }
-        public void checkLogPage(){
+
+    public void checkLogPage() {
         LOG_FORM.shouldBe(clickable);
         PASS_FORM.shouldBe(clickable);
         SUBMIT_BUTTON.shouldBe(clickable);

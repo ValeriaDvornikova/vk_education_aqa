@@ -7,10 +7,11 @@ import ru.vk.ed.pages.NewsPage;
 
 public class OkNewsTest extends BaseTest {
     private String str = "It's a good news!";
+
     @Test
     // Авторизация прописана в Before для всех тестов
-    public void pushRecording(){
-        MainPage mainPage =new MainPage();
+    public void pushRecording() {
+        MainPage mainPage = new MainPage();
         mainPage.clickNews();
         NewsPage newspage = new NewsPage();
         newspage.checkNewsPage();

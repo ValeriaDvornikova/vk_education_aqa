@@ -15,7 +15,7 @@ public abstract class BaseTest {
     private final static String PASS = "technopolisPassword";
 
 
-// Настройка веб-драйвера
+    // Настройка веб-драйвера
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
@@ -24,13 +24,13 @@ public abstract class BaseTest {
 
     @BeforeEach
     // Авторизация и настройка веб-драйвера для тестов
-   public void init(){
+    public void init() {
         setUp();
         authorized();
     }
 
     // Авторизация на странице ok.ru
-    public void authorized(){
+    public void authorized() {
         LoginPage loginPage = new LoginPage(BASE_URL);
         // Проверяем, что это действительно страница авторизации пользователя
         loginPage.checkLogPage();
@@ -40,9 +40,10 @@ public abstract class BaseTest {
         loginPage.pressOnButton();
 
     }
+
     // Постусловие для тестов: выход из учетной записи и закрытие веб-драйвера
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         new MainPage().exitOk();
         Selenide.closeWebDriver();
     }

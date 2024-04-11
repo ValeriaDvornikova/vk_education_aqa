@@ -8,7 +8,7 @@ import ru.vk.ed.pages.MainPage;
 public class OkGroupTest extends BaseTest {
     @Test
     // Авторизация прописана в Before для всех тестов
-    public void testGroup(){
+    public void testGroup() {
         MainPage mainPage = new MainPage();
         mainPage.pressOnGroup();
         GroupPage groupPage = new GroupPage();

@@ -16,19 +16,21 @@ public class MusicPage {
 
 
     // Проверка нахождения на странице с группами
-    public void checkMusicPage(){
+    public void checkMusicPage() {
         MUSIC_AREA.shouldBe(visible);
         MY_MUSIC_BUTTON.shouldBe(visible);
         SEARCH_MUSIC.shouldBe(visible);
     }
+
     // Нажать на воспроизведение в панели сверху и далее остановка воспроизведения
-    public void playMusic(){
+    public void playMusic() {
         MUSIC_BUTTON_PLAY.shouldBe(visible).click();
         sleep(3000L);
         PAUSE_BUTTON.shouldBe(visible).click();
     }
+
     // Возвращаем время воспроизведения трека для проверки проигрывания
-    public String getTime(){
+    public String getTime() {
         return WM_PLAYER_DATA.getAttribute("current-time");
     }
 }

@@ -2,6 +2,7 @@ package ru.vk.ed.pages;
 
 import com.codeborne.selenide.*;
 import org.openqa.selenium.By;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -27,7 +28,7 @@ public class MainPage {
     private final SelenideElement USER_PAGE_ELEMENT = $x("//*[@data-l='t,userPage']");
 
     // Проверка наахождения на главной странице
-    public void checkMainPage(){
+    public void checkMainPage() {
         PHOTO_ZONE.shouldBe(visible);
         ENTERTAINMENTS_AREA.shouldBe(visible);
         USER_PAGE_ELEMENT.shouldBe(visible);
@@ -39,21 +40,24 @@ public class MainPage {
     }
 
     // На главном экране нажать на кнопку Музыка, расположенную на верхней части панели
-    public void clickOnMusic(){
+    public void clickOnMusic() {
         MUSIC_ELEMENT.shouldBe(visible).click();
         sleep(1000L);
     }
-    public void clickNews(){
+
+    public void clickNews() {
         PUSH_NEWS.shouldBe(visible).click();
         CLICK_ON_RECORD.shouldBe(visible).click();
 
 
     }
-    public String containsRec(){
-       return RECORD.innerText();
+
+    public String containsRec() {
+        return RECORD.innerText();
     }
+
     // Выход со страницы пользователя
-    public void exitOk(){
+    public void exitOk() {
         SET_OF_PROFILE.shouldBe(visible).click();
         EXIT_BOX.shouldBe(visible).click();
         EXIT_BUTTON.isDisplayed();
@@ -61,7 +65,8 @@ public class MainPage {
         EXIT_BUTTON2.isDisplayed();
         EXIT_BUTTON2.shouldBe(visible).click();
     }
-    public void deleteNews(){
+
+    public void deleteNews() {
         NODES_OF_NEWS.shouldBe(visible).click();
         DELETE_NEWS.get(1).shouldBe(visible).click();
     }
