@@ -17,16 +17,16 @@ public class MusicPage {
 
     // Проверка нахождения на странице с группами
     public void checkMusicPage() {
-        MUSIC_AREA.shouldBe(visible);
-        MY_MUSIC_BUTTON.shouldBe(visible);
-        SEARCH_MUSIC.shouldBe(visible);
+        MUSIC_AREA.shouldBe(visible.because("Проверка нахождения элементов плеера"));
+        MY_MUSIC_BUTTON.shouldBe(visible.because("Проверка нахождения кнопки Моя музыка"));
+        SEARCH_MUSIC.shouldBe(visible.because("Проверка нахождения кнопки Поиска музыки"));
     }
 
     // Нажать на воспроизведение в панели сверху и далее остановка воспроизведения
     public void playMusic() {
-        MUSIC_BUTTON_PLAY.shouldBe(visible).click();
+        MUSIC_BUTTON_PLAY.shouldBe(visible.because("Проверка нахождения кнопки Воспроизведения")).click();
         sleep(3000L);
-        PAUSE_BUTTON.shouldBe(visible).click();
+        PAUSE_BUTTON.shouldBe(visible.because("Проверка нахождения кнопки Пауза")).click();
     }
 
     // Возвращаем время воспроизведения трека для проверки проигрывания

@@ -29,25 +29,25 @@ public class MainPage {
 
     // Проверка наахождения на главной странице
     public void checkMainPage() {
-        PHOTO_ZONE.shouldBe(visible);
-        ENTERTAINMENTS_AREA.shouldBe(visible);
-        USER_PAGE_ELEMENT.shouldBe(visible);
+        PHOTO_ZONE.shouldBe(visible.because("Проверка нахождения фотографии на главной странице"));
+        ENTERTAINMENTS_AREA.shouldBe(visible.because("Проверка нахождения блока на главной странице"));
+        USER_PAGE_ELEMENT.shouldBe(visible.because("Проверка нахождения Фамилии и имени на странице"));
     }
 
     // Нажать на кнопку группы на главной странице
     public void pressOnGroup() {
-        GROUP_BUTTON.shouldBe(visible).click();
+        GROUP_BUTTON.shouldBe(visible.because("Проверка нахождения кнопки Группы")).click();
     }
 
     // На главном экране нажать на кнопку Музыка, расположенную на верхней части панели
     public void clickOnMusic() {
-        MUSIC_ELEMENT.shouldBe(visible).click();
+        MUSIC_ELEMENT.shouldBe(visible.because("Проверка нахождения кнопки Музыка")).click();
         sleep(1000L);
     }
 
     public void clickNews() {
-        PUSH_NEWS.shouldBe(visible).click();
-        CLICK_ON_RECORD.shouldBe(visible).click();
+        PUSH_NEWS.shouldBe(visible.because("Проверка нахождения кнопки Опубликовать")).click();
+        CLICK_ON_RECORD.shouldBe(visible.because("Проверка нахождения кнопки Запись во всплывающем окне")).click();
 
 
     }
@@ -58,17 +58,15 @@ public class MainPage {
 
     // Выход со страницы пользователя
     public void exitOk() {
-        SET_OF_PROFILE.shouldBe(visible).click();
-        EXIT_BOX.shouldBe(visible).click();
-        EXIT_BUTTON.isDisplayed();
-        EXIT_BUTTON.shouldBe(visible).click();
-        EXIT_BUTTON2.isDisplayed();
-        EXIT_BUTTON2.shouldBe(visible).click();
+        SET_OF_PROFILE.shouldBe(visible.because("Проверка нахождения кнопки Настройки профиля")).click();
+        EXIT_BOX.shouldBe(visible.because("Проверка нахождения бокса с кнопкой Выйти")).click();
+        EXIT_BUTTON.shouldBe(visible.because("Проверка нахождения кнопки Выйти")).click();
+        EXIT_BUTTON2.shouldBe(visible.because("Проверка нахождения кнопки Выйти во всплывающем окне")).click();
     }
 
     public void deleteNews() {
-        NODES_OF_NEWS.shouldBe(visible).click();
-        DELETE_NEWS.get(1).shouldBe(visible).click();
+        NODES_OF_NEWS.shouldBe(visible.because("Проверка нахождения кнопки Функции добавленной новости")).click();
+        DELETE_NEWS.get(1).shouldBe(visible.because("Проверка нахождения кнопки Удалать запись")).click();
     }
 
 }

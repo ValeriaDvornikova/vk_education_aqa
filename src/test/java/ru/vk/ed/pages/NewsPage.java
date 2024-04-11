@@ -16,16 +16,16 @@ public class NewsPage {
     // Проверяем, что появилась форма с добавлением записи на страницу
     public void checkNewsPage() {
         sleep(2000L);
-        POSTING_FORM.shouldBe(visible);
-        POSTING_BUTTON_WITH_SETTINGS.shouldBe(visible);
-        ADD_TO_HOBBIES_BUTTON.shouldBe(visible);
+        POSTING_FORM.shouldBe(visible.because("Проверяем, что появилась форма с добавлением записи"));
+        POSTING_BUTTON_WITH_SETTINGS.shouldBe(visible.because("Проверяем, что есть кнопки Фото, Видео, Настройки"));
+        ADD_TO_HOBBIES_BUTTON.shouldBe(visible.because("Проверка, что есть кнопка Добавить в увлечения"));
     }
 
     // Выкладываем запись на странице: нажимаем на кнопку "Опубликовать", в открывающемся окне вводим текст, публикуем новость
     public void pushNews(String str) {
-        TEXTBOX.shouldBe(visible).click();
+        TEXTBOX.shouldBe(visible.because("Проверяем, что появилась форма с добавлением записи")).click();
         TEXTBOX.setValue(str);
-        SUBMIT_NEWS_BUTTON.shouldBe(visible).click();
+        SUBMIT_NEWS_BUTTON.shouldBe(visible.because("Проверяем, что появилась кнопка Поделиться")).click();
         sleep(2000L);
     }
     // В постусловии выполняется удаление записи

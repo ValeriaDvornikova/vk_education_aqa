@@ -14,7 +14,7 @@ public class OkGroupTest extends BaseTest {
         GroupPage groupPage = new GroupPage();
         groupPage.checkGroupPage();
         groupPage.getIntoGroup();
-        Assertions.assertTrue(groupPage.getResultText().equals("Вы в группе"));
+        Assertions.assertEquals("Вы в группе", groupPage.getResultText());
 
         // Выходим из группы с целью сделать тест идепотентным
         groupPage.exitMyGroup();

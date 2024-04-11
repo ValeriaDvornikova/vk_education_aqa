@@ -19,16 +19,16 @@ public class GroupPage {
 
     // Проверка нахождения на странице с группами
     public void checkGroupPage() {
-        GROUP_AREA.shouldBe(visible);
-        SEARCH_GROUP_WINDOW.shouldBe(visible);
-        CREATE_GROUP_BUTTON.shouldBe(visible);
+        GROUP_AREA.shouldBe(visible.because("Проверка нахождения поля с группами на странице"));
+        SEARCH_GROUP_WINDOW.shouldBe(visible.because("Проверка нахождения поиска на странице c группами"));
+        CREATE_GROUP_BUTTON.shouldBe(visible.because("Проверка нахождения кнопки Создания группы"));
     }
 
     // Нажать на кнопку "Вступить" у первой группы
     public void getIntoGroup() {
         Throwable exception = null;
         do {
-            JOIN_GROUP.shouldBe(visible).click();
+            JOIN_GROUP.shouldBe(visible.because("Проверка нахождения кнопки Вступить")).click();
             try {
                 getResultText();
                 exception = null;
@@ -40,15 +40,15 @@ public class GroupPage {
 
     // Получить текст "Вы в группе" из элемента на странице
     public String getResultText() {
-        return RESULT_TEXT_IN_TAG.shouldBe(visible).innerText();
+        return RESULT_TEXT_IN_TAG.shouldBe(visible.because("Проверка нахождения кнопки Вы в группе")).innerText();
     }
 
     // Выйти из группы
     public void exitMyGroup() {
         Selenide.refresh();
-        GROUP_FIRST.shouldBe(visible).click();
-        EXIT_GROUP.shouldBe(visible).click();
-        EXIT_STEP.shouldBe(visible).click();
-        OUT.shouldBe(visible).click();
+        GROUP_FIRST.shouldBe(visible.because("Проверка нахождения группы, в которую вступили")).click();
+        EXIT_GROUP.shouldBe(visible.because("Проверка нахождения кнопки Выхода из группы")).click();
+        EXIT_STEP.shouldBe(visible.because("Проверка нахождения кнопки выйти из группы во всплывающем окне")).click();
+        OUT.shouldBe(visible.because("Проверка нахождения кнопки Выхода из группы")).click();
     }
 }
