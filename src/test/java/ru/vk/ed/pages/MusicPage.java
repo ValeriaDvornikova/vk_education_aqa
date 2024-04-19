@@ -1,6 +1,7 @@
 package ru.vk.ed.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebElementCondition;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
@@ -14,6 +15,9 @@ public class MusicPage {
     private final SelenideElement MY_MUSIC_BUTTON = $x("//*[@data-l='t,library']");
     private final SelenideElement SEARCH_MUSIC = $x("//input[@placeholder='Поиск музыки']");
 
+    public MusicPage() {
+        checkMusicPage();
+    }
 
     // Проверка нахождения на странице с группами
     public void checkMusicPage() {
@@ -31,6 +35,6 @@ public class MusicPage {
 
     // Возвращаем время воспроизведения трека для проверки проигрывания
     public String getTime() {
-        return WM_PLAYER_DATA.getAttribute("current-time");
+        return WM_PLAYER_DATA.shouldBe(visible.because("Должно быть видно время воспроизведения")).getAttribute("current-time");
     }
 }

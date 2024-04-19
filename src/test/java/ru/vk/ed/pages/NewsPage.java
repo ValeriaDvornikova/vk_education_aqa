@@ -13,6 +13,10 @@ public class NewsPage {
     private final SelenideElement POSTING_BUTTON_WITH_SETTINGS = $x("//*[@class= 'posting_f_ac']");
     private final SelenideElement ADD_TO_HOBBIES_BUTTON = $x("//*[@class= 'tico__itohv']");
 
+    public NewsPage() {
+        checkNewsPage();
+    }
+
     // Проверяем, что появилась форма с добавлением записи на страницу
     public void checkNewsPage() {
         sleep(2000L);

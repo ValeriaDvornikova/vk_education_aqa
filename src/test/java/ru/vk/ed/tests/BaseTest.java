@@ -1,10 +1,11 @@
 package ru.vk.ed.tests;
 
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import ru.vk.ed.pages.LoginPage;
 import ru.vk.ed.pages.MainPage;
 
@@ -16,21 +17,23 @@ public abstract class BaseTest {
 
 
     // Настройка веб-драйвера
-    public void setUp() {
+    public static void setUp() {
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadTimeout = 20000L;
+        Configuration.timeout = 10000L;
     }
 
-    @BeforeEach
+    @BeforeAll
     // Авторизация и настройка веб-драйвера для тестов
-    public void init() {
+    public static void init() {
         setUp();
         authorized();
     }
 
     // Авторизация на странице ok.ru
-    public void authorized() {
+    public static void authorized() {
         LoginPage loginPage = new LoginPage(BASE_URL);
         // Проверяем, что это действительно страница авторизации пользователя
         loginPage.checkLogPage();

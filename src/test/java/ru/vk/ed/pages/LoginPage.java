@@ -22,6 +22,7 @@ public class LoginPage {
      */
     public LoginPage(String url) {
         Selenide.open(url);
+        checkLogPage();
     }
 
     public void checkLogPage() {

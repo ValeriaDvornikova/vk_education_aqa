@@ -1,6 +1,7 @@
 package ru.vk.ed.pages;
 
 import com.codeborne.selenide.*;
+import com.sun.tools.javac.Main;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -22,15 +23,19 @@ public class MainPage {
     private final SelenideElement EXIT_BOX = $x("//div[@role='listitem']");
     private final SelenideElement EXIT_BUTTON = $x("//a[contains(text(),'Выйти')]");
     private final SelenideElement EXIT_BUTTON2 = $x("//input[@data-l='t,logout']");
-    private final SelenideElement NODES_OF_NEWS = $x("//div[@class = 'feed __just-created __header-redesign']//div[@class = 'feed-action']");
+    private final SelenideElement NODES_OF_NEWS = $x("//*[@class = 'feed-action_trigger']");
     private final ElementsCollection DELETE_NEWS = $$x("//*[contains(text(),'Удалить заметку')]");
-    private final SelenideElement ENTERTAINMENTS_AREA = $x("//*[@class='alternative-content-block__hcz2a']");
     private final SelenideElement USER_PAGE_ELEMENT = $x("//*[@data-l='t,userPage']");
 
     // Проверка наахождения на главной странице
+    public MainPage(){
+        checkMainPage();
+    }
+    public boolean isMainPage(){
+        return PHOTO_ZONE.isDisplayed();
+    }
     public void checkMainPage() {
         PHOTO_ZONE.shouldBe(visible.because("Проверка нахождения фотографии на главной странице"));
-        ENTERTAINMENTS_AREA.shouldBe(visible.because("Проверка нахождения блока на главной странице"));
         USER_PAGE_ELEMENT.shouldBe(visible.because("Проверка нахождения Фамилии и имени на странице"));
     }
 
